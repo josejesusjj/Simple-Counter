@@ -8,10 +8,10 @@ const Home = (props) => {
 			<div className="calendar">
 				<i className="far fa-clock"></i>
 			</div>
-			<div className="miles">45</div>
+			<div className="four">{props.miles}+45</div>
 			<div className="three">{props.hundreds}</div>
-			<div className="two">{counter.tens}</div>
-			<div className="units">{props.units}</div>
+			<div className="two">2</div>
+			<div className="one">{props.units}</div>
 		</div>
 	);
 };
@@ -28,9 +28,10 @@ setInterval(function () {
 	const miles = Math.floor(counter / 1000);
 	const hundreds = Math.floor(counter / 100);
 	const tens = Math.floor(counter / 10);
-	const units = Math.floor(counter);
+	const one = Math.floor(counter);
 	counter++;
-	console.log(miles, hundreds, tens, units);
+	console.log(miles, hundreds, tens, one);
+	return counter;
 }, 1000);
 
 export default Home;
