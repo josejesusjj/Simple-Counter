@@ -9,6 +9,6 @@ import Home from "./component/home.jsx";
 //import your own components
 
 ReactDOM.render(
-	<Home four={4} three={3} two={2} one={1} />,
+	<Home miles={0} hundreds={0} tens={0} units={0} />,
 	document.querySelector("#app")
 );
