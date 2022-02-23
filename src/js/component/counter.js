@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import reactDom from "react-dom";
 
 const Counter = (props) => {
 	let seconds = 0;
@@ -10,18 +11,19 @@ const Counter = (props) => {
 		const units = Math.floor(seconds);
 		seconds++;
 		console.log(miles, hundreds, tens, units);
+
 		return seconds;
 	}, 1000);
 
 	return (
 		<div className="bigCounter">
-			<div className="calendar">
+			<span className="calendar">
 				<i className="far fa-clock"></i>
-			</div>
-			<div>{props.miles}</div>
-			<div>{props.hundreds}</div>
-			<div>{props.tens}</div>
-			<div>{props.units}</div>
+			</span>
+			<span>{props.miles}</span>
+			<span>{props.hundreds}</span>
+			<span>{props.tens}</span>
+			<span>{props.units}</span>
 		</div>
 	);
 };

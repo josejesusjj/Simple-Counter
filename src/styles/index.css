@@ -4,7 +4,7 @@
     background-color: black;
 }
 
-.bigCounter div{
+.bigCounter span{
     display: inline-block;
     font-size: 60px;
     line-height: 60px;
