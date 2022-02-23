@@ -1,29 +1,21 @@
+//import react into the bundle
 import React from "react";
+import ReactDOM from "react-dom";
+
+// include your styles into the webpack bundle
+
 import PropTypes from "prop-types";
-import reactDom from "react-dom";
 
 const Counter = (props) => {
-	let seconds = 0;
-	setInterval(function () {
-		const miles = Math.floor(seconds / 1000);
-		const hundreds = Math.floor(seconds / 100);
-		const tens = Math.floor(seconds / 10);
-		const units = Math.floor(seconds);
-		seconds++;
-		console.log(miles, hundreds, tens, units);
-
-		return seconds;
-	}, 1000);
-
 	return (
 		<div className="bigCounter">
 			<span className="calendar">
 				<i className="far fa-clock"></i>
 			</span>
-			<span>{props.miles}</span>
-			<span>{props.hundreds}</span>
-			<span>{props.tens}</span>
-			<span>{props.units}</span>
+			<span>{props.miles % 10}</span>
+			<span>{props.hundreds % 10}</span>
+			<span>{props.tens % 10}</span>
+			<span>{props.units % 10}</span>
 		</div>
 	);
 };
@@ -34,5 +26,18 @@ Counter.propTypes = {
 	hundreds: PropTypes.number,
 	miles: PropTypes.number,
 };
+let seconds = 0;
+setInterval(function () {
+	const miles = Math.floor(seconds / 1000);
+	const hundreds = Math.floor(seconds / 100);
+	const tens = Math.floor(seconds / 10);
+	const units = Math.floor(seconds);
+	seconds++;
+	console.log(miles, hundreds, tens, units);
+	ReactDOM.render(
+		<Counter miles={miles} hundreds={hundreds} tens={tens} units={units} />,
+		document.querySelector("#counterDiv")
+	);
+}, 1000);
 
 export default Counter;
