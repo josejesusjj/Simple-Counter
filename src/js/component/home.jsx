@@ -3,7 +3,7 @@ import Counter from "./counter";
 
 const Home = () => {
 	return (
-		<div id="counterDiv">
+		<div className="container-fluid">
 			<Counter />
 		</div>
 	);
