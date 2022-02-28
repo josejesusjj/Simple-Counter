@@ -1,6 +1,5 @@
 //import react into the bundle
 import React from "react";
-import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
 
 const Counter = (props) => {
@@ -32,18 +31,5 @@ Counter.propTypes = {
 	hundreds: PropTypes.number,
 	miles: PropTypes.number,
 };
-let seconds = 0;
-setInterval(function () {
-	const miles = Math.floor(seconds / 1000);
-	const hundreds = Math.floor(seconds / 100);
-	const tens = Math.floor(seconds / 10);
-	const units = Math.floor(seconds);
-	seconds++;
-	console.log(miles, hundreds, tens, units);
-	ReactDOM.render(
-		<Counter miles={miles} hundreds={hundreds} tens={tens} units={units} />,
-		document.querySelector("#app")
-	);
-}, 1000);
 
 export default Counter;
